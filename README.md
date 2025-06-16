@@ -43,7 +43,8 @@ The dataset consists of annotated road damage images collected from various sour
 
 ## 📈 Results
 Sample detection results:
-![Sample Detection](results/hasil_deteksi.mp4)
+
+https://github.com/user-attachments/assets/61993fa1-5fa5-4dfc-a27b-95e5a8d53dfb
 
 ## 🤝 Contributing
 Feel free to contribute by submitting pull requests or opening issues!
