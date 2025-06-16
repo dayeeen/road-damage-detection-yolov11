@@ -1,6 +1,5 @@
 streamlit
 opencv-python
-ultralytics>=8.0.20
 Pillow
 numpy
 torch>=2.0.0,<2.2.0
