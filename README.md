@@ -16,7 +16,6 @@ road-damage-detection/
 ├── data/             # Dataset and annotations
 ├── models/           # Trained YOLOv11 models
 ├── scripts/          # Training & evaluation scripts
-├── notebooks/        # Jupyter notebooks for experimentation
 ├── results/          # Detection results and analysis
 └── README.md         # Project documentation
 ```
@@ -44,7 +43,7 @@ The dataset consists of annotated road damage images collected from various sour
 
 ## 📈 Results
 Sample detection results:
-![Sample Detection](results/sample.png)
+![Sample Detection](results/hasil_deteksi.mp4)
 
 ## 🤝 Contributing
 Feel free to contribute by submitting pull requests or opening issues!
