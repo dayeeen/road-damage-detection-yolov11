@@ -42,7 +42,14 @@ with tab2:
     if img_file:
         image = Image.open(img_file).convert("RGB")
         st.image(image, caption="Input Gambar", use_container_width=True)
-        results = model.predict(image, conf=conf_threshold)
+
+        # --- TAMBAHKAN LANGKAH RESIZE DI SINI ---
+        # Kecilkan gambar untuk mempercepat prediksi
+        resized_image = image.resize((640, 640)) 
+        # -----------------------------------------
+
+        st.info("Sedang memproses, harap tunggu...")
+        results = model.predict(resized_image, conf=conf_threshold) # Gunakan gambar yang sudah di-resize
         annotated = results[0].plot()
         st.image(annotated, caption="Hasil Deteksi", use_container_width=True)
 
