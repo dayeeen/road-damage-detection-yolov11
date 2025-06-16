@@ -44,15 +44,18 @@ with tab2:
         image = Image.open(img_file).convert("RGB")
         st.image(image, caption="Input Gambar", use_container_width=True)
 
-        # --- TAMBAHKAN LANGKAH RESIZE DI SINI ---
-        # Kecilkan gambar untuk mempercepat prediksi
         resized_image = image.resize((640, 640)) 
-        # -----------------------------------------
-
+        
         st.info("Sedang memproses, harap tunggu...")
-        results = model.predict(resized_image, conf=conf_threshold) # Gunakan gambar yang sudah di-resize
+        results = model.predict(resized_image, conf=conf_threshold) 
         annotated = results[0].plot()
-        st.image(annotated, caption="Hasil Deteksi", use_container_width=True)
+        
+        # --- PERUBAHAN WARNA ---
+        # Konversi dari BGR (output .plot()) ke RGB untuk ditampilkan dengan benar di Streamlit
+        annotated_rgb = cv2.cvtColor(annotated, cv2.COLOR_BGR2RGB)
+        # --- AKHIR PERUBAHAN ---
+
+        st.image(annotated_rgb, caption="Hasil Deteksi", use_container_width=True)
 
 # 🎥 Video
 with tab3:
