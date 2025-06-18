@@ -41,18 +41,44 @@ with tab1:
 with tab2:
     img_file = st.file_uploader("Upload gambar", type=["jpg", "jpeg", "png"])
     if img_file:
+        import time
+        import io
+
         image = Image.open(img_file).convert("RGB")
         st.image(image, caption="Input Gambar", use_container_width=True)
 
-        # --- TAMBAHKAN LANGKAH RESIZE DI SINI ---
-        # Kecilkan gambar untuk mempercepat prediksi
         resized_image = image.resize((640, 640)) 
-        # -----------------------------------------
 
         st.info("Sedang memproses, harap tunggu...")
-        results = model.predict(resized_image, conf=conf_threshold) # Gunakan gambar yang sudah di-resize
+        start_time = time.time()
+
+        # Prediksi
+        results = model.predict(resized_image, conf=conf_threshold) 
         annotated = results[0].plot()
-        st.image(annotated, caption="Hasil Deteksi", use_container_width=True)
+
+        # Waktu selesai
+        end_time = time.time()
+        elapsed = end_time - start_time
+        st.success(f"✅ Selesai diproses dalam {elapsed:.2f} detik")
+
+        # Konversi BGR ke RGB untuk Streamlit
+        annotated_rgb = cv2.cvtColor(annotated, cv2.COLOR_BGR2RGB)
+
+        # Tampilkan hasil
+        st.image(annotated_rgb, caption="Hasil Deteksi", use_container_width=True)
+
+        # Konversi hasil ke file PNG
+        result_pil = Image.fromarray(annotated_rgb)
+        buffered = io.BytesIO()
+        result_pil.save(buffered, format="PNG")
+
+        # Tombol download
+        st.download_button(
+            label="📥 Download Gambar Hasil",
+            data=buffered.getvalue(),
+            file_name="hasil_deteksi.png",
+            mime="image/png"
+        )
 
 # 🎥 Video
 with tab3:
