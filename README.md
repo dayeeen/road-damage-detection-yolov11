@@ -43,6 +43,10 @@ The dataset consists of annotated road damage images collected from various sour
 
 ## 📈 Results
 Sample detection results:
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> dbbefad (Update README.md)
 
 https://github.com/user-attachments/assets/61993fa1-5fa5-4dfc-a27b-95e5a8d53dfb
 
