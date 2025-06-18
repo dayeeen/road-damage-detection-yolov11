@@ -48,7 +48,6 @@ with tab2:
         st.image(image, caption="Input Gambar", use_container_width=True)
 
         resized_image = image.resize((640, 640)) 
-<<<<<<< HEAD
 
         st.info("Sedang memproses, harap tunggu...")
         start_time = time.time()
@@ -80,19 +79,6 @@ with tab2:
             file_name="hasil_deteksi.png",
             mime="image/png"
         )
-=======
-        
-        st.info("Sedang memproses, harap tunggu...")
-        results = model.predict(resized_image, conf=conf_threshold) 
-        annotated = results[0].plot()
-        
-        # --- PERUBAHAN WARNA ---
-        # Konversi dari BGR (output .plot()) ke RGB untuk ditampilkan dengan benar di Streamlit
-        annotated_rgb = cv2.cvtColor(annotated, cv2.COLOR_BGR2RGB)
-        # --- AKHIR PERUBAHAN ---
-
-        st.image(annotated_rgb, caption="Hasil Deteksi", use_container_width=True)
->>>>>>> 34aa82b9465febf1bc37b14a10f1b104c78c7273
 
 # 🎥 Video
 with tab3:
