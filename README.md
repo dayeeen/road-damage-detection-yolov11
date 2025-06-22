@@ -1,8 +1,10 @@
-# Road Damage Detection
+# Road Damage Detection (V1)
 
 🚗💥 **Road Damage Detection using YOLOv11**
 
 This project aims to detect and classify road surface damage using the YOLOv11 object detection model. The dataset, training scripts, and model implementation are provided to help improve road safety and maintenance efficiency.
+
+This version was developed as part of a research project/thesis to explore road surface damage detection using object detection techniques. A more refined version (v2) is currently in development, with improved training configurations and evaluation.
 
 ## 📌 Features
 - 🚧 Detect various types of road damage (e.g., cracks, potholes and patch.)
